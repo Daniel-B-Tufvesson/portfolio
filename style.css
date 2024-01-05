@@ -1,9 +1,14 @@
 
 
-div {
+/* div {
     border: solid 1px gray;
     margin: -1px;
 }
+
+project-cell {
+    border: solid 1px gray;
+    margin: -1px;
+} */
 
 h1 {
     font-size: 40pt;
@@ -76,6 +81,7 @@ footer {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: stretch;
 }
 
 .project-cell {
@@ -83,7 +89,17 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: start;
-    align-items: center;
+    align-items: stretch;
+
+    border: 1px gray solid;
+    box-shadow: gray 2px 2px 3px;
+    transition: box-shadow 100ms, scale 100ms;
+}
+
+.project-cell:hover {
+    box-shadow: gray 8px 8px 12px;
+    scale: 1.01;
+    transition: box-shadow 100ms, scale 100ms;
 }
 
 .project-cell-image {
@@ -97,7 +113,16 @@ footer {
     gap: 20px;
 }
 
+/* Deprecated. */
 .project-hashtags {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 10px;
+}
+
+.project-tags {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
