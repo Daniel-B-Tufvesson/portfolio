@@ -10,8 +10,12 @@ project-cell {
     margin: -1px;
 } */
 
+:root {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
 h1 {
-    font-size: 40pt;
+    font-size: 45pt;
 }
 
 h2 {
@@ -22,9 +26,29 @@ h3 {
     font-size: 20pt;
 }
 
+h4 {
+    font-size: 15pt;
+}
+
+ul {
+    margin-top: 5px;
+}
+
+li {
+    padding-bottom: 6px;
+}
+
+a {
+    color: inherit; /* blue colors for links too */
+    text-decoration: inherit; /* no underline */
+}
+
 .page-wrapper {
     width: 1000px;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
 
     background-color: white;
 }
@@ -42,7 +66,13 @@ header {
     flex-direction: row;
     align-items: end;
     padding: 20px;
+    
+    background-image: url('background.jpeg');
+    background-position: center;
+    color: white;
+    text-shadow: black 3px 3px 5px;
 }
+
 
 footer {
     height: 200px;

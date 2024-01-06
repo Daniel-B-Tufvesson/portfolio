@@ -6,11 +6,13 @@ const CLASS_HEADING = 'project-cell-heading'
 const CLASS_TAGS = 'project-tags'
 
 const HTML = `
-    <img class="${CLASS_IMAGE}"></img>
-    <div class="${CLASS_INFO}">
-        <h3 class="${CLASS_HEADING}"></h3>
-    </div>
-    <div class="${CLASS_TAGS}"></div>
+    <a href="index.html">
+        <img class="${CLASS_IMAGE}"></img>
+        <div class="${CLASS_INFO}">
+            <h3 class="${CLASS_HEADING}"></h3>
+        </div>
+        <div class="${CLASS_TAGS}"></div>
+    </a>
 `
 
 const ATTRIBUTE_IMAGE = 'image'
