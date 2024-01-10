@@ -4,9 +4,10 @@ const CLASS_INFO = 'project-cell-info'
 const CLASS_IMAGE = 'project-cell-image'
 const CLASS_HEADING = 'project-cell-heading'
 const CLASS_TAGS = 'project-tags'
+const CLASS_PROJECT_URL = 'project-url'
 
 const HTML = `
-    <a href="index.html">
+    <a class=${CLASS_PROJECT_URL} href="index.html">
         <img class="${CLASS_IMAGE}"></img>
         <div class="${CLASS_INFO}">
             <h3 class="${CLASS_HEADING}"></h3>
@@ -18,9 +19,10 @@ const HTML = `
 const ATTRIBUTE_IMAGE = 'image'
 const ATTRIBUTE_HEADING = 'heading'
 const ATTRIBUTE_TAGS = 'tags'
+const ATTRIBUTE_URL = 'url';
 
 export class ProjectCell extends HTMLElement {
-    static observedAttributes = [ATTRIBUTE_IMAGE, ATTRIBUTE_HEADING, ATTRIBUTE_TAGS];
+    static observedAttributes = [ATTRIBUTE_IMAGE, ATTRIBUTE_HEADING, ATTRIBUTE_TAGS, ATTRIBUTE_URL];
 
     constructor() {
         super()
@@ -50,6 +52,10 @@ export class ProjectCell extends HTMLElement {
 
             case ATTRIBUTE_TAGS:
                 this.setTags(newValue)
+                break
+
+            case ATTRIBUTE_URL:
+                this.querySelector('.' + CLASS_PROJECT_URL).href = newValue
                 break
         }
     }
