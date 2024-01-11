@@ -2,9 +2,9 @@
  Style for the rocket-space-program project page.
 */
 
-.page-content {
-    gap: 150px;
-}
+@import url(../project-page-style.css);
+
+
 
 .game-demo {
     padding-left: 50px;
@@ -24,34 +24,3 @@
 
 }
 
-.project-heading {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.project-introduction {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-}
-
-.project-image {
-    height: 300px;
-    width: 300px;
-    object-fit: cover;
-}
-
-.project-section {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-}
-
-.section-info {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    gap: 20px;
-}

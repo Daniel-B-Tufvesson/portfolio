@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel Tufvesson - BONE-BREAKER</title>
+    <link rel="stylesheet" href="bone-breaker-style.css">
+    <script type="module" src="game/breakout.js"></script>
+</head>
+<body>
+
+    <div class="page-wrapper">
+        <header class="small-header">
+            <a href="../index.html"><h1>DANIEL TUFVESSON</h1></a>
+        </header>
+
+        <div class="page-content">
+
+            <!-- GAME DEMO. -->
+            <div class="game-demo">
+                <breakout-game></breakout-game>
+            </div>
+
+            <!-- INTRODUCTION -->
+            <div class="project-introduction">
+                <div class="project-heading">
+                    <h2 class="project-heading-title">BONE-BREAKER</h2>
+                    <p class="project-heading-type">GAME/WEB DEVELOPMENT</p>
+                </div>
+
+                <div class="project-section">
+                    
+                    <div class="section-info">
+                        <p>
+                            This was a project for a web development course at Linköping University.
+                            I created this together with my fellow student and friend Karin Stendahl.
+                        </p>
+        
+                        <p>
+                            The game is a variant of the classic Breakout game, where the player controls
+                            a paddle, and must bounce a ball onto bricks which will then break. The game
+                            is won when every brick is broken.
+                        </p>
+
+                        <p>
+                            In our version, the player must break all the bones. The player must also 
+                            avoid any falling broken bones. And instead of a ball, there is an angry-lookin 
+                            skull bouncing around.
+                        </p>
+        
+                        <p>
+                            We knew we wanted to make a Breakout game, but we didn't have a particular theme
+                            in mind at first. It was during one of our design meetings that we randomly joked
+                            about "bone-breaker" being a funny name for the game. And from there, we quickly 
+                            came up with the idea about the ball being a skull, the bricks being bones, and
+                            it taking place in a hellish world. 
+                        </p>
+                    </div>
+                    <div class="section-media">
+                        <video class="project-image" src="bb demo.mov" autoplay="true" loop="true" muted="true"></video>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HEALTH SYSTEM -->
+            <div class="project-section">
+                <div class="section-media">
+                    <video class="project-image" src="bb health.mov" autoplay="true" loop="true" muted="true"></video>
+                    <img class="project-image" src="health bar.jpeg" alt="">
+                </div>
+
+                <div class="section-info">
+                    <h2>PADDLE HEALTH</h2>
+                    <p>
+                        We added a health system to the paddle, due to the difficulty added 
+                        by the falling broken bones. This was both to give the player a
+                        second chance for any mistakes, as well as alleviating the problem
+                        of "impossible situations", that is, situations where the skull and 
+                        a falling bone fall to same place, forcing the player to either
+                        lose the skull or get hit by a bone.
+                    </p>
+                    <p>
+                        We also added a heart block, which drops a healing heart when broken.
+                        The heart must then be caught with the paddle to restore one health-point.
+                    </p>
+                </div>
+            </div>
+
+            <!-- MULTIPLE SKULLS -->
+            <div class="project-section">
+
+                <div class="section-info">
+                    <h2>MULTIPLE SKULLS</h2>
+                    <p>
+                        Breaking a certain skull block causes new skulls to spawn. 
+                    </p>
+                    <p>
+                        Periodically having multiple skulls changes the intensity in
+                        gamplay, and leads to more variation in playing experience.  
+                    </p>
+
+                    <p>
+                        It's very hard to keep multiple skulls in play for an extended
+                        period of time, as these skulls are easily lost. However, it's 
+                        only when losing the final skull, that the paddle takes damage. 
+                    </p>
+                </div>
+
+                <div class="section-media">
+                    <video class="project-image" src="bb multiple skulls 2.mov" autoplay="true" loop="true" muted="true"></video>
+                </div>
+            </div>
+
+            <!-- CHAOS -->
+            <div class="project-section">
+                <div class="section-media">
+                    <video class="project-image" src="bb multiple skulls 1.mov" autoplay="true" loop="true" muted="true"></video>
+                </div>
+
+                <div class="section-info">
+                    <h2>FUN CHAOS</h2>
+                    <p>
+                        The skull blocks can sometimes lead to a chain reaction of skulls
+                        spawning. 
+                    </p>
+                    <p>
+                        This adds an element of chaotic unpredictability, as these chain
+                        reactions can quickly lead to either loss or victory.
+                    </p>
+                    <p>
+                        Personally, I find these moments to be the highlights when playing
+                        the game, as I always look for opportunities to trigger these
+                        chain reactions.
+                    </p>
+                </div>
+            </div>
+
+            
+            <!-- CODE DESIGN -->
+            <div class="project-section">
+                <div class="section-media">
+                </div>
+
+                <div class="section-info">
+                    <h2>CODE DESIGN</h2>
+                    <p>
+                        Our two main principles regarding the code design was scalability
+                        and reusability.
+                    </p>
+                    <p>
+                        Scalability in the sense that it should be easy to add new things, 
+                        such as new objects or new game mechanics. And to do this without
+                        having to change much of the already existing code. This meant 
+                        that we encapsulated much of the behavior of the individual game
+                        objects to their respective classes.
+                    </p>
+                    <p>
+                        And reusability in the sense that we don't want to write the same
+                        code twice. For the game objects, this meant that much behavior
+                        could be inherited from superclasses. For example, the skull block
+                        and heart block inherits most of their behavior from the bone class.
+                        This can be seen in the class diagram below depicting the inheritance
+                        of all the game objects in the game.
+                    </p>
+                    <img class="bb-class-diagram" src="bb go class diagram.jpeg" alt="">
+                </div>
+            </div>
+
+            <!-- SPRITE DESIGN -->
+            <div class="project-section">
+                <div class="section-media">
+                    
+                </div>
+
+                <div class="section-info">
+                    <h2>SPRITE DESIGN</h2>
+                    <p>
+                        We envisioned the game's graphics to consist of pixelated sprites, 
+                        giving the game a charming look and feel, despite the game's 
+                        fairly edgy theme.
+                    </p>
+                    <p>
+                        The sprites were created by me, and as a basis I used some sprites 
+                        from some of my earlier games. 
+                    </p>
+                    <p>
+                        For the hellish background, however, I used generative AI
+                        to create. I prompted it to generate a "hellish landscape with
+                        lava set in a cave". I then blurred it and altered its hue to
+                        make it more suitable as a background, as to make the sprites 
+                        "pop out" more, and to minimize background cluttering which would
+                        only lead to unnecessary cognitive load on the player.  
+                    </p>
+
+                    <div class="sprites">
+                        <img class="sprite-img" src="game assets/ball skull.png" alt="skull sprite">
+                        <img class="sprite-img" src="game assets/brick bone.png" alt="bone sprite">
+                        <img class="sprite-img" src="game assets/broken brick bone.png" alt="broken bone sprite">
+                        <img class="sprite-img" src="game assets/heart.png" alt="heart sprite">
+                        <img class="sprite-img" src="game assets/brick health.png" alt="health block sprite">
+                        <img class="sprite-img" src="game assets/brick ball spawner.png" alt="skull block sprite">
+                    </div>
+                </div>
+            </div>
+
+            <!-- GITHUB -->
+            <div class="project-section">
+                <div class="section-info">
+                    <h2>AVAILABLE ON GITHUB</h2>
+                    <p>
+                        The code is publicly available <a href="https://github.com/Daniel-B-Tufvesson/BONE-BREAKER">here</a> on my GitHub.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <footer>
+        
+        </footer>
+    </div>
+    
+</body>
+</html>
