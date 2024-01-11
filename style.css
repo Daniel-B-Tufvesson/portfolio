@@ -37,6 +37,8 @@ p {
 
 ul {
     margin-top: 5px;
+    list-style: circle;
+    list-style-position: inside;
 }
 
 li {
@@ -110,23 +112,30 @@ footer {
 }
 
 .portrait-picture {
-    display: block;
     width: 200px;
+    object-fit: contain;
 }
 
 .about-me {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     /* padding: 50px; */
 }
 
 .me-section {
     display: flex;
-    flex-direction: column;
-    justify-content: start;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: start;
     padding: 20px;
-    gap: 20px;
+    gap: 80px;
     min-width: 200px;
+}
+
+.me-bio {
+    display: flex;
+    flex-flow: column;
+    gap: 20px;
 }
 
 .project-table {
