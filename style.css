@@ -114,10 +114,31 @@ body {
 }
 
 
-footer {
-    height: 200px;
+portfolio-footer {
+    position: relative;
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: start;
+    padding-top: 50px;
+    gap: 50px;
 
     background-color: black;
+    color: whitesmoke;
+}
+
+portfolio-footer a {
+    color: inherit;
+}
+
+.copyright {
+    position: absolute;
+    left: 10px;
+    bottom: 5px;
+
+    font-size: 9pt;
+    color: lightgray;
 }
 
 .portrait-picture {
