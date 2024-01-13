@@ -1,0 +1,86 @@
+@import url(../project-page-style.css);
+
+.front-images {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.front-image-large {
+    height: 395px;
+}
+
+.front-images-small {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.front-images-small > img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.project-image {
+    width: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.section-media {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 50px;
+    width: 90%;
+    align-self: center;
+}
+
+.project-section {
+    flex-direction: column;
+    align-items: stretch;
+}
+
+
+.media-container {
+    position: relative;
+}
+
+.media-container img, video {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.media-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+
+    opacity: 0;
+    transition: 200ms ease;
+    background-color: #0000009b;
+    color: white;
+}
+
+.media-container:hover .media-overlay {
+    opacity: 1;
+}
+
+.media-overlay-content {
+    padding: 50px;
+}
+
+.mo-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
