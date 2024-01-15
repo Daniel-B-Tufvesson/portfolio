@@ -41,12 +41,15 @@ p {
 }
 
 ul {
-    margin-top: 5px;
+    /* margin-top: 5px; */
+    padding-top: 15px;
+    padding-left: 5px;
     list-style: circle;
     list-style-position: inside;
 }
 
 li {
+    padding: 5px;
     padding-bottom: 6px;
 }
 
@@ -144,6 +147,7 @@ portfolio-footer a {
 .portrait-picture {
     width: 200px;
     object-fit: contain;
+    border-radius: 50%;
 }
 
 .about-me {
