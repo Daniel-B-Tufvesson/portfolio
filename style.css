@@ -40,6 +40,10 @@ p {
     line-height: 25px;
 }
 
+i {
+    font-style: italic;
+}
+
 ul {
     /* margin-top: 5px; */
     padding-top: 15px;
