@@ -353,54 +353,6 @@
                 </div>
             </div>
 
-            
-            <!-- CODE DESIGN -->
-            <div class="project-section">
-                <div class="section-media">
-                </div>
-
-                <div class="section-info">
-                    <h2>CODE DESIGN</h2>
-                    <p>
-                        The core principle here is: scalability, scalability, scalability!
-                    </p>
-                    <p>
-                        When working on a game this large, with all its diverse
-                        components and functions, scalability is crucial. Adding new
-                        (and removing old) game objects should be easy. The game must
-                        not break, and it must not take a performance hit. 
-                    </p>
-                    <p>
-                        Take the blocks in the map for example. Currently, the map can contain
-                        exactly 1 800 000 blocks (and it can contain far more!). The
-                        problem is then, how do you keep that many blocks in memory
-                        without a massive performance hit? And further, how do you
-                        read and write all of that to the disk when the player loads
-                        and saves the game? My solution came from the realization that
-                        most blocks in the map are of the same type, and don't contain
-                        any unique data of their own, i.e. they are all duplicates. So,
-                        instead of storing, for example, a unique dirt block at each
-                        location in the map, I instead store only one single dirt block.
-                        This single block is then referenced from every location where
-                        there should be a dirt block, making it seem like there are 
-                        several dirt blocks.  
-                    </p>
-                    
-                </div>
-            </div>
-
-            <!-- GITHUB -->
-            <div class="project-section">
-                <div class="section-info">
-                    <h2>ACCESS ON GITHUB</h2>
-                    <p>
-                        If you are an employer and want to take a look at the code,
-                        please <a href="../index.html">contact</a> me and I will 
-                        give you access to the GitHub repository.
-                    </p>
-                </div>
-            </div>
-
         </div>
 
         <portfolio-footer></portfolio-footer>
