@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel Tufvesson - Speech Act Classification</title>
+    <link rel="stylesheet" href="speech-acts-style.css">
+    <script type="module" src="../portfolio-footer.js" defer></script>
+</head>
+<body>
+
+    <div class="page-wrapper">
+        <header class="small-header">
+            <a href="../index.html"><h1>DANIEL TUFVESSON</h1></a>
+        </header>
+
+        <div class="page-content">
+
+
+            <!-- INTRODUCTION -->
+            <div class="project-introduction">
+                <div class="project-heading">
+                    <h2 class="project-heading-title">Automatic Speech Act Classification</h2>
+                    <p class="project-heading-type">Bachelor's Thesis in Cognitive Science</p>
+                    <p class="project-heading-type">AI & NLP / 2024</p>
+                </div>
+
+                <div class="project-section">
+                    
+                    <div class="section-info">
+                        <p>
+                             What is done through speaking? In a sense, a spoken utterance is just a string of vocal sounds. But in another sense, it is also a social action that has real effects on the world. For example, "Can you pass the salt?" is an act of requesting the salt, which can then result in obtaining the salt. These spoken actions are referred to as <i>speech acts</i>.  The meaning of a speech act depends both on the syntax and semantics of the sentence as well as the conversational context in which it occurs. We humans unconsciously understand and categorize speech acts all the time. <b>But how can we make computers do the same?</b>
+                        </p>
+                        <p>
+                            In my thesis, I developed two types of classifiers for classifying speech acts in written sentences:
+                            
+                        </p>
+                        <ul>
+                            <li>
+                                A <b>rule-based classifier</b> that learns a set of rules from syntactic and grammatic features in sentences. It then uses these rules to classify unseen sentences.
+                            </li>
+                            <li>
+                                An <b>embedding-based classifier</b> that converts sentences into sentence embeddings and classifies these with a single-layer, linear neural network.
+                            </li>
+                        </ul>
+
+                        <!-- <div class="project-tags">
+                            <span class="hashtag">AI</span>
+                            <span class="hashtag">NLP</span>
+                            <span class="hashtag">Speech Acts</span>
+                            <span class="hashtag">Semi-supervised Learning</span>
+                            <span class="hashtag">Neural Network</span>
+                            <span class="hashtag">Rule Induction</span>
+                            <span class="hashtag">SBERT</span>
+                        </div> -->
+                    </div>
+                </div>
+
+                
+            </div>
+
+            
+
+            <!-- Speech Acts -->
+            <div class="project-section">
+                <div class="section-info">
+                    <h2>What are Speech Acts?</h2>
+                    <p>
+                        I have focused on four speech acts that are defined in <i>The Swedish Academy Grammar</i> (Teleman et al., 1999).
+                    </p>
+                    <ul>
+                        <li>
+                            <b>Assertive</b>: the speaker holds that the content of the sentence is true or at least true to a varying degree. For example: “They launched a car into space.”
+                        </li>
+                        <li>
+                            <b>Question</b>: the speaker requests information regarding whether or not something is true, or under what conditions it is true. For example: “Are you busy?” or “How much does the car cost?”.
+                        </li>
+                        <li>
+                            <b>Directive</b>: the speaker attempts to get the listener to carry out the action described by the sentence. For example: “Open the door!” or “Will you hold this for me?”
+                        </li>
+                        <li>
+                            <b>Expressive</b>: the speaker expresses some feeling or emotional attitude about the content of the sentence. For example: “What an adorable dog!” or “The Avengers are awesome!”
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <!-- Why and How? -->
+            <div class="project-section">
+                <div class="section-info">
+                    <h2>Why and How?</h2>
+                    <p>
+                        These classifiers are intended to be tools that can be used for linguistic analysis of large amounts of language data, also referred to as corpus linguistics. Here, they can be used for finding linguistic patterns of speech acts in transcribed conversations.
+                    </p>
+                    <p>
+                        The higher-performing embedding-based classifier was created from the lower-performing rule-based classifier, essentially bootstrapping the former from the latter. This was done by:
+                    </p>
+                    <ol>
+                        <li>
+                            Manually annotating sentences for a test set for evaluating the performance of the classifiers. 
+                        </li>
+                        <li>
+                            Training the rule-based classifier from a small sample of the annotated sentences.
+                        </li>
+                        <li>
+                            Automatically annotating a large training set with the rule-based classifier.
+                        </li>
+                        <li>
+                            Training the embedding-based classifier with these automatically annotated sentences.
+                        </li>
+                    </ol>
+                    <p>
+                        The idea is that, by using a small amount of annotated data in combination with knowledge about grammar and syntax, we can automatically create a large data set—a form of <i>semi-supervised learning</i>. The rules essentially add additional knowledge in conjunction with the data. This is in contrast to training a classifier on the data alone without any specialized linguistic knowledge.
+                    </p>
+                </div>
+            </div>
+
+
+            <!-- Rule-based Classifier -->
+            <div class="project-section">
+
+                <div class="section-info">
+                    <h2>The Rule-based Classifier</h2>
+                    <p>
+                        This classifier uses rules for classification. It relies primarily on syntax, but also sentiment. A rule is essentially an if-then statement:
+                    </p>
+                    <p class="rule">
+                        <b>IF</b> sentence has features <i>X</i> <b>THEN</b> predict speech act <i>y</i>
+                    </p>
+                    <p>
+                        The features are given as a sequence of what I referer to as <i>synt-blocks</i> (or syntactic blocks), that encode different syntactic and grammatical information about a sentence. For example:
+                    </p>
+                    <p class="rule">
+                        <b>IF</b> {SUBJECT, FINITE_VERB, PERIOD} <b>THEN</b> Assertive
+                    </p>
+                    <p>
+                        This rule says that if a sentence begins with a subject, which is followed by a finite verb, and ends with a period, then it is an assertive speech act. For example, "John went home.", "The car drove fast.", and "All roads lead to Rome." The classifier consists of a whole list of these rules, ordered from longest to shortest. To classify a sentence, it searches through the list to find the longest rule that matches the sentence.
+                    </p>
+                    <p>
+                        This classifier was trained on 1,787 manually annotated sentences and learned 98 rules.
+                    </p>
+                </div>
+
+                <!-- <div class="section-info">
+                    <h3>Sentiment: Assertive vs. Expressives</h3>
+                    <p>
+                        One issue was that many assertives and expressives have the same syntax. However, one property of expressives is that they contain sentiment—they express some emotional attitude. I therefore used a sentiment classifier to differentiate ambiguous expressives from assertives. If an assertive has sentiment, then it is really an expressive.
+                    </p>
+                </div>
+                 -->
+            </div>
+
+
+            <!-- Embedding-based Classifier -->
+            <div class="project-section">
+                <div class="section-info">
+                    <h2>The Embedding-based Classifier</h2>
+                    <p>
+                        This classifier uses sentence embeddings from SBERT and classifies them with a linear, single-layer neural network. 
+                    </p>
+                    <p>
+                        <i>Sentence embeddings</i> are vectors that represent the semantic meaning of words. Embeddings that are closer to each other in the semantic space have similar meanings. Because of this, it is possible to use neural networks to classify sentences based on their semantic meanings. To compute the embeddings, I used the Swedish SBERT model that was developed by <a href="https://kb-labb.github.io/posts/2021-08-23-a-swedish-sentence-transformer/">KBLab</a>.
+                    </p>
+                    <p>
+                        This classifier was trained on 3.3 million automatically annotated sentences.
+                    </p>
+                    <img class="bert-classif" src="BERT classifier diagram-Sida-2.drawio.png" alt="">
+                </div>
+            </div>
+
+
+            <!-- Evaluation. -->
+            <div class="project-section">
+                <div class="section-info">
+                    <h2>Evaluation and Comparison</h2>
+
+                    <p>
+                        The rule-based classifier has an accuracy of .69 and the embedding-based an accuracy of .73. A marginal yet visible improvement.
+                    </p>
+                    <p>
+                        Its greatest improvement is for <i>indirect</i> directives and expressives. An <i>indirect speech act</i> is when the speech act is syntactically disguised as another speech act. For example, due to politeness, the directive "Pass the salt." can be expressed indirectly as the assertive "This needs some salt." or the question "Could you pass the salt?". This improvement is likely due to the embedding-based classifier operating on the semantics rather than the syntax.
+                    </p>
+
+                    <h3>Confusion Matrices</h3>
+
+                    <div class="eval-matrices">
+                        <div>
+                            <img src="rule confusion matrix.png" alt="">
+                            <p>
+                                The rule based classifier.
+                            </p>
+                        </div>
+                        <div>
+                            <img src="embedding confusion matrix.png" alt="">
+                            <p>
+                                The embedding-based classifier.
+                            </p>
+                        </div>
+                    </div>
+                        
+                    
+                </div>
+            </div>
+
+
+            <!-- Data sets -->
+            <div class="project-section">
+                <div class="section-info">
+                    <h2>The Data Sets</h2>
+                    <p>
+                        These models were trained and evaluated on isolated, Swedish sentences originating from online discussion forums (familjeliv.se and flashback.se). I retrieved the sentences from corpora provided by <a href="https://spraakbanken.gu.se/resurser/familjeliv">Språkbanken</a>.
+                    </p>
+
+                    <h3>Manual Annotation</h3>
+                    <p>
+                        I manually annotated these sentences following the MATTER methodology (Pustejovsky & Stubbs, 2013). In total, I annotated 4,667 sentences, which I split into two data sets:
+                    </p>
+                    <ul>
+                        <li>
+                            A test set with 2,435 sentences for evaluating the classifiers.
+                        </li>
+                        <li>
+                            A dev set with 2,232 sentences for developing the classifiers. Some of these were also used for training the rule-based classifier.
+                        </li>
+                    </ul>
+                    <p>
+                        I developed a web browser-based annotation tool, to ease the annotation process and minimize sources of error. 
+                    </p>
+                    <img class="anno-tool" src="Annotation Tool.png" alt="">
+
+                    <h3>Automatic Annotation</h3>
+                    <p>
+                        The rule-based classifier was then used for automatically annotating a training set of 3.3 million sentences.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- Access -->
+            <div class="project-section">
+
+                <div class="section-info">
+                    <h2>Access to Models, Data, and Thesis</h2>
+                    <p>
+                        The classifers are available on <a href="https://github.com/Daniel-B-Tufvesson/speech-act-classifier">GitHub</a>.
+                    </p>
+                    <p>
+                        The data sets are available on <a href="https://www.kaggle.com/datasets/danieltufvesson/swedics-speech-acts">Kaggle</a>.
+                    </p>
+
+                    <p>
+                        The full thesis is available <a href="">here</a>.
+                    </p>
+                </div>
+            </div>
+
+
+
+            <!-- References -->
+            <div class="project-section">
+
+                <div class="section-info">
+                    <h2>References</h2>
+                    <p>
+                        Teleman, U., Hellberg, S., & Andersson, E. (1999). <i>Svenska Akademiens grammatik</i> (1 ed., Vol. 4). Svenska Akademien.
+                    </p>
+                    <p>
+                        Pustejovsky, J., & Stubbs, A. (2013). <i>Natural Language Annotation for Machine Learning</i>.
+O’Reilly Media, Inc.
+                    </p>
+                </div>
+            </div>
+            
+
+        </div>
+        <portfolio-footer></portfolio-footer>
+    </div>
+    
+</body>
+</html>
