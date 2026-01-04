@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel Tufvesson - Rocket Space Program</title>
+    <link rel="stylesheet" href="rsp-style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css" integrity="sha256-XoaMnoYC5TH6/+ihMEnospgm0J1PM/nioxbOUdnM8HY=" crossorigin="anonymous">
+    <script type="module" src="https://daniel-b-tufvesson.github.io/Volume-Space-Program/game.js" defer></script>
+    <script type="module" src="../../js/components/portfolio-footer.js" defer></script>
+</head>
+<body>
+    <div class="page-wrapper">
+        <header class="small-header">
+            <a href="../../index.html"><h1>DANIEL TUFVESSON</h1></a>
+        </header>
+
+        <div class="page-content">
+
+            <!-- GAME DEMO. -->
+            <div class="game-demo">
+                <p class="demo-text">Interactive demo</p>
+
+                <div class="demo-content">
+                    <volume-space-program></volume-space-program>
+
+                    <div class="game-info">
+                        <h2>Volume Space Program <i class="fa fa-rocket" aria-hidden="true"></i></h2>
+                        <p>
+                            Adjust the volume by launching a rocket into orbit. The higher 
+                            the orbit, the higher the volume.
+                        </p>
+                        <p>
+                            (Note: this doesn't actually change the volume; the controller 
+                            is purely visual.)
+                        </p>
+
+                        <h2>Instructions</h2>
+                        <ul>
+                            <li><p>Press the mouse button to boost the rocket.</p></li>
+
+                            <li><p>If the rocket has exploded, click the mouse button to 
+                                restart.</p></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- INTRODUCTION. -->
+            <div class="project-introduction">
+                <div class="project-heading">
+                    <h2 class="project-heading-title">VOLUME SPACE PROGRAM</h2>
+                    <p class="project-heading-type">WEB-GAME DEVELOPMENT / 2023</p>
+                </div>
+
+                <div class="project-section">
+                    
+                    <div class="section-info">
+                        <p>
+                            This was a project for a web development course at Linköping University.
+                            The goal of the project was for each student to create their own creative
+                            but more or less useless input field. We were supposed to create something
+                            akin to the <a target="_blank" href="https://www.boredpanda.com/funny-worst-input-fields/">these</a>.
+                            Volume Space Program was my contribution.
+                        </p>
+        
+                        <p>
+                            The task here is to launch a tiny rocket into orbit around the planet. The 
+                            rocket's distance from the planet determines the volume.
+                        </p>
+        
+                        <p>
+                            When developing the idea for this, I knew I wanted to do something fun
+                            involving physics and gravity. It wasn't enough for it to be hard to use, 
+                            it should also be enjoyable; easy to fail, but easy to try again.
+                        </p>
+
+                        <div class="project-tags">
+                            <span class="hashtag">JavaScript</span>
+                            <span class="hashtag">HTML</span>
+                            <span class="hashtag">CSS</span>
+                            <span class="hashtag">Web</span>
+                        </div>
+                    </div>
+                    <div class="section-media">
+                        <video class="project-image" src="/assets/pages/volume-space-program/demo.mov" autoplay="true" loop="true" muted="true"></video>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ORBITAL MECHANICS -->
+            <div class="project-section">
+                <div class="section-media">
+                    <video class="project-image" src="/assets/pages/volume-space-program/stable orbit.mov" autoplay="true" loop="true" muted="true"></video>
+                </div>
+
+                <div class="section-info">
+                    <h2>ORBITAL MECHANICS</h2>
+                    <p>
+                        The goal is essentially to achieve a stable orbit around the 
+                        planet. While hard, this is possible.
+                    </p>
+                    <p>
+                        I created the orbital mechanics from greatly simplifying Newton's
+                        law of gravity, essentially saying, objects closer each other 
+                        attract each other more than those further away.
+                    </p>
+                </div>
+            </div>
+
+            <!-- SPACE DEBRIS -->
+            <div class="project-section">
+                <div class="section-info">
+                    <h2>SPACE DEBRIS</h2>
+                    <p>
+                        Crashing the rocket drops debris into orbit. These follow the 
+                        same orbital mechanics as the rocket.
+                    </p>
+                    <p>
+                        After many crashes, space can become quite cluttered.
+                    </p>
+                    <p>
+                        This was a final touch I added to give more depth to the 
+                        orbital mechanics. While it's not just quite mesmerizing to 
+                        watch, it also gives the player a sense that their actions
+                        have an impact on the game world.
+                    </p>
+                </div>
+                <div class="section-media">
+                    <video class="project-image" src="/assets/pages/volume-space-program/debris.mov" autoplay="true" loop="true" muted="true"></video>
+                </div>
+            </div>
+            
+            <!-- GITHUB -->
+            <div class="project-section">
+                <div class="section-info">
+                    <h2>AVAILABLE ON GITHUB</h2>
+                    <p>
+                        The code is publicly available <a href="https://github.com/Daniel-B-Tufvesson/Volume-Space-Program">here</a> on my GitHub.
+                    </p>
+                </div>
+            </div>
+
+
+        </div>
+
+        <portfolio-footer></portfolio-footer>
+    </div>
+    
+</body>
+</html>

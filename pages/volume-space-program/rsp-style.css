@@ -1,0 +1,23 @@
+/*
+ Style for the rocket-space-program project page.
+*/
+
+@import url(../../css/project-page-style.css);
+
+
+
+.demo-content {
+    padding-left: 50px;
+    padding-right: 50px;
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+.game-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
