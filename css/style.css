@@ -16,7 +16,11 @@ project-cell {
 } */
 
 :root {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
+    font-family: 'Times New Roman', Times, Georgia, serif;
+    font-weight: 400;
+    font-size: 13pt;
+    color: rgba(0, 0, 0, .87);
 }
 
 h1 {
@@ -36,9 +40,10 @@ h4 {
 }
 
 p {
-    font-size: 13pt;
-    line-height: 25px;
+    /* font-size: 13pt; */
+    /* line-height: 25px; */
     /* font-family: 'Times New Roman', Times, serif; */
+    line-height: 1.4;
 }
 
 i {
@@ -102,7 +107,7 @@ body {
     display: flex;
     justify-content: center;
 
-    background-color: gray;
+    background-color: rgb(143, 143, 143);
 }
 
 .large-header {
@@ -257,5 +262,8 @@ portfolio-footer a {
     padding-left: 10px;
     padding-right: 10px;
     background-color: lightgray;
-    border-radius: 7px;
+    color: rgba(0, 0, 0, 0.786);
+    border-radius: 6px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 12pt;
 }
