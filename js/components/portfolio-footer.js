@@ -4,13 +4,18 @@ const HTML = `
     <p>daniel.tufvesson@outlook.com</p>
     <p><a href="https://github.com/Daniel-B-Tufvesson">GitHub</a></p>
 
-    <p class="copyright">© 2024 by Daniel Tufvesson</p>
+    <p class="copyright">© <span class="curr-year">2024</span> by Daniel Tufvesson</p>
 `
 
 class PortfolioFooter extends HTMLElement {
     constructor() {
         super()
         this.innerHTML = HTML
+
+        // Set current year.
+        const yearSpan = this.querySelector('.curr-year')
+        const currentYear = new Date().getFullYear()
+        yearSpan.textContent = currentYear
     }
 }
 
