@@ -8,8 +8,20 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css" integrity="sha256-XoaMnoYC5TH6/+ihMEnospgm0J1PM/nioxbOUdnM8HY=" crossorigin="anonymous">
     <script type="module" src="https://daniel-b-tufvesson.github.io/Volume-Space-Program/game.js" defer></script>
     <script type="module" src="../../js/components/portfolio-footer.js" defer></script>
+    
+    <script>
+        window.MathJax = {
+            tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-mml-chtml.js"></script> -->
 </head>
 <body>
+    
     <div class="page-wrapper">
         <header class="small-header">
             <a href="../../index.html"><h1>DANIEL TUFVESSON</h1></a>
@@ -105,6 +117,24 @@
                         law of gravity, essentially saying, objects closer each other 
                         attract each other more than those further away.
                     </p>
+                    <div class="math-box">
+                        <div>
+                            Newton's formula
+                        </div>
+                        <div class="math">
+                            $$
+                            F = G \frac{m_1 m_2}{r^2}
+                            $$
+                        </div>
+                        <div>
+                            becomes
+                        </div>
+                        <div class="math">
+                            $$
+                            F_{acceleration} = G^{\prime} \frac{1}{r}
+                            $$
+                        </div>
+                    </div>
                 </div>
             </div>
 
