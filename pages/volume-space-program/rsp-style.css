@@ -20,4 +20,11 @@
     gap: 20px;
 }
 
+.math-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+}
+
 
