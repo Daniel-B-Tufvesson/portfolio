@@ -1,18 +1,21 @@
 
 
+const CLASS_CONTAINER = 'project-cell-container'
 const CLASS_INFO = 'project-cell-info'
 const CLASS_IMAGE = 'project-cell-image'
 const CLASS_HEADING = 'project-cell-heading'
 const CLASS_TAGS = 'project-tags'
 const CLASS_PROJECT_URL = 'project-url'
+const CLASS_USER_CONTENT = 'project-user-content'
 
 const HTML = `
-    <a class=${CLASS_PROJECT_URL} href="index.html">
-        <img class="${CLASS_IMAGE}"></img>
+    <a class="${CLASS_PROJECT_URL} ${CLASS_CONTAINER}" href="index.html">
+        <img class="${CLASS_IMAGE}"/>
         <div class="${CLASS_INFO}">
             <h3 class="${CLASS_HEADING}"></h3>
+            <div class="${CLASS_USER_CONTENT}"></div>
+            <div class="${CLASS_TAGS}"></div>
         </div>
-        <div class="${CLASS_TAGS}"></div>
     </a>
 `
 
@@ -34,7 +37,7 @@ export class ProjectCell extends HTMLElement {
         this.classList.add('project-cell')
 
         // Add content to component.
-        const infoElement = this.querySelector('.' + CLASS_INFO)
+        const infoElement = this.querySelector('.' + CLASS_USER_CONTENT)
         content.forEach(child => {infoElement.appendChild(child)})
     }
 
