@@ -39,6 +39,13 @@ h4 {
     font-size: 15pt;
 }
 
+h5 {
+    font-size: 13pt;
+    font-weight: bold;
+    line-height: 1.4;
+    padding-bottom: 5px;
+}
+
 p {
     /* font-size: 13pt; */
     /* line-height: 25px; */
@@ -218,6 +225,17 @@ portfolio-footer a {
     gap: 20px;
     overflow-y: scroll;
     /* border: solid 1px black; */
+}
+
+.news-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.news-item-date {
+    font-size: 11pt;
+    line-height: 1.4;
 }
 
 
