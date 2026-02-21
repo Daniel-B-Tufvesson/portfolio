@@ -179,6 +179,11 @@ portfolio-footer a {
     /* padding: 50px; */
 }
 
+.news-and-info {
+    display: flex;
+    flex-direction: row;
+}
+
 .me-section {
     display: flex;
     flex-direction: row;
@@ -187,6 +192,7 @@ portfolio-footer a {
     padding: 20px;
     gap: 80px;
     min-width: 200px;
+    /* border: 1px red solid; */
 }
 
 .me-bio {
@@ -194,6 +200,28 @@ portfolio-footer a {
     flex-flow: column;
     gap: 20px;
 }
+
+/* News -------------------------------------------*/
+
+.news-container {
+    /* border: solid 1px blue; */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+}
+
+.news-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: scroll;
+    /* border: solid 1px black; */
+}
+
+
+/* Project view -----------------------------------*/
 
 .project-table {
     padding: 20px;
