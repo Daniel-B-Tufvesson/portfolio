@@ -222,7 +222,7 @@ portfolio-footer a {
 .news-content {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 30px;
     overflow-y: scroll;
     /* border: solid 1px black; */
 }
