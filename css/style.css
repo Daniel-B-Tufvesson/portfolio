@@ -366,19 +366,28 @@ portfolio-footer a {
 
     .project-cell {
         height: auto;
-        min-height: 160px;
+        min-height: 0;
+    }
+
+    .project-cell-container {
+        height: auto;
+        flex-direction: column;
     }
 
     .project-cell-image {
-        width: 35%;
+        width: 100%;
         height: auto;
+        aspect-ratio: 16 / 9;
+        flex: none;
         object-fit: cover;
     }
 
     .project-cell-info {
         min-width: 0;
+        flex: 1;
         padding: 12px;
         gap: 12px;
+        justify-content: flex-start;
     }
 
     portfolio-footer {
