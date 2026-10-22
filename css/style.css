@@ -233,9 +233,15 @@ portfolio-footer a {
     align-items: baseline;
 }
 
+.news-item-header h5 {
+    min-width: 0;
+}
+
 .news-item-date {
     font-size: 11pt;
     line-height: 1.4;
+    flex-shrink: 0;
+    white-space: nowrap;
 }
 
 
